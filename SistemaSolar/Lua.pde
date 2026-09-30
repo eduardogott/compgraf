@@ -6,10 +6,17 @@ class Moon {
   float orbitspeed; // Orbit speed
   
   Moon(float distance_, float diameter_) {
+    // Velocidade sorteada como no original: o sinal define o sentido da órbita
+    this(distance_, diameter_, random(-0.1,0.1));
+  }
+
+  // Extensão: permite fixar orbitspeed, para que luas do mesmo planeta
+  // tenham velocidades garantidamente diferentes
+  Moon(float distance_, float diameter_, float orbitspeed_) {
     distance = distance_;
     diameter = diameter_;
     theta = 0;
-    orbitspeed = random(-0.1,0.1);
+    orbitspeed = orbitspeed_;
   }
   
   void update() {
